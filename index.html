@@ -1,63 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<img src="Logo.svg" alt="SVG Icon">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registration Form</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
+      gap: 30px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    .container {
+      display: flex;
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
     .registration-form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 300px;
+      flex: 1;
+      padding: 30px;
+      border-right: 2px solid #f1f1f1;
     }
     .registration-form h2 {
-      margin-bottom: 20px;
-      font-size: 24px;
       text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #333;
     }
     .registration-form label {
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
     }
-    .registration-form input {
+    .registration-form input, select {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.3s;
+    }
+    .registration-form input:focus {
+      border: 1px solid #28a745;
     }
     .registration-form input[type="submit"] {
-      background-color: #28a745;
+      background: #28a745;
       color: white;
       border: none;
       cursor: pointer;
+      padding: 12px;
+      font-size: 16px;
+      text-transform: uppercase;
     }
     .registration-form input[type="submit"]:hover {
-      background-color: #218838;
+      background: #218838;
     }
-    .registration-form input:required {
-      border-left: 4px solid #dc3545;
+    .media-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      flex: 1;
+      text-align: center;
     }
-    .registration-form input:valid {
-      border-left: 4px solid #28a745;
+    iframe, audio, video {
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .registration-form {
+        border-right: none;
+        border-bottom: 2px solid #f1f1f1;
+      }
     }
   </style>
 </head>
 <body>
+<div class="container">
   <div class="registration-form">
     <h2>User Registration</h2>
     <form action="#" method="post">
@@ -69,18 +107,10 @@
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-      <!-- Password -->
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" minlength="8" required>
-
-      <!-- Confirm Password -->
-      <label for="confirm-password">Confirm Password:</label>
-      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
-
       <!-- Date of Birth -->
       <label for="dob">Date of Birth:</label>
       <input type="date" id="dob" name="dob" required>
-
+       
       <!-- Gender -->
       <label for="gender">Gender:</label>
       <select id="gender" name="gender" required>
@@ -90,27 +120,45 @@
         <option value="other">Other</option>
       </select>
 
+      <!-- Nationality -->
+      <label for="nationality">Nationality:</label>
+      <select id="nationality" name="nationality" required>
+        <option value="">Select Nationality</option>
+        <option value="ghanaian">Ghanaian</option>
+        <option value="nigerian">Nigerian</option>
+        <option value="ethiopian">Ethiopian</option>
+        <option value="indian">Indian</option>
+        <option value="chinese">Chinese</option>
+        <option value="other">Other</option>
+      </select>
+
       <!-- Phone Number -->
       <label for="phone">Phone Number:</label>
       <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
 
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" minlength="8" required>
+
+      <!-- Confirm Password -->
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
       <!-- Submit Button -->
       <input type="submit" value="Register">
     </form>
+
   </div>
-</body>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Fx6kUA7CWnA?si=sWAvyWeXUWTYSRwu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<audio controls>
-  <source src="bubblesloud.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-
-<video controls>
-        <source src="IMG_1308.MP4" type="video/mp4">
-        Your browser does not support the video tag.
-</video>
-
-  
+  <div class="media-section">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Fx6kUA7CWnA?si=sWAvyWeXUWTYSRwu" frameborder="0" allowfullscreen></iframe>
+    <audio controls>
+      <source src="bubblesloud.mp3" type="audio/mpeg">
+    </audio>
+    <video controls>
+      <source src="IMG_1308.MP4" type="video/mp4">
+    </video>
+  </div>
+ </div>
+ </body>
 </html>
